@@ -59,11 +59,11 @@ function App() {
     userData["total_account_value"] =
       userData["total_account_value"] + price * amount;
     if (name === "Ethereum") {
-      userData["num_eth"] = userData["num_eth"] + amount;
+      userData["num_Ethereum"] = userData["num_Ethereum"] + amount;
     } else if (name === "Bitcoin") {
-      userData["num_btc"] = userData["num_btc"] + amount;
+      userData["num_Bitcoin"] = userData["num_Bitcoin"] + amount;
     } else if (name === "XRP") {
-      userData["num_xrp"] = userData["num_btc"] + amount;
+      userData["num_XRP"] = userData["num_XRP"] + amount;
     }
     // write back to firestore
     await setDoc(doc(firestore, "users", username), userData);
@@ -77,7 +77,12 @@ function App() {
       <header className="App-header">
         total account value: {userData["total_account_value"]} <br />
         {coins.map((coin) => (
-          <CryptoPane key="asdf" crypto={coin} onBuyClick={onBuyClick} />
+          <CryptoPane
+            key={coin["name"]}
+            crypto={coin}
+            coinQuantity={userData[`num_${coin["name"]}`]}
+            onBuyClick={onBuyClick}
+          />
         ))}
       </header>
       <p>welcome</p>
