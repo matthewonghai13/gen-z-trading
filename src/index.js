@@ -5,9 +5,11 @@ import Home from "./Home";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Login from "./components/Login/Login.js";
 import CustomNavbar from "./components/CustomNavbar/CustomNavbar.js";
-import firebase from "firebase/app";
+import firebase from 'firebase/compat/app';
 import "firebase/firestore";
 import "firebase/auth";
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 firebase.initializeApp({
   apiKey: "AIzaSyBRnQBoi13u9pnoRDIGK7ukgF9DvzW1x0c",
