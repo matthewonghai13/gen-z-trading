@@ -60,15 +60,17 @@ function App() {
     await setDoc(doc(firestore, "users", username), userData);
   };
 
+  
   return (
     <div className="App">
+      <header id='welcomeHome'>welcome</header> 
       {!user ? <Redirect to="/login" /> : <></>}
       <header className="App-header">
         {coins.map((coin) => (
           <CryptoPane key="asdf" crypto={coin} onBuyClick={onBuyClick} />
         ))}
       </header>
-      <p>welcome</p>
+
     </div>
   );
 }

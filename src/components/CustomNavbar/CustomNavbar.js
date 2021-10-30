@@ -13,9 +13,9 @@ export default function CustomNavbar() {
   const logOut = () => {
     return (
       auth.currentUser && (
-        <button className="logoutButton" onClick={() => auth.signOut()}>
+        <Nav className="logoutButton" onClick={() => auth.signOut()}>
           Sign Out
-        </button>
+        </Nav>
       )
     );
   };
