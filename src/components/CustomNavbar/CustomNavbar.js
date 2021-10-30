@@ -40,7 +40,7 @@ export default function CustomNavbar() {
       <Nav className="me-auto">
         <Nav.Link href="/resources">Resources</Nav.Link>
         <Nav.Link href="/checkup">Check Up</Nav.Link>
-        <Nav.Link href="/login">Login</Nav.Link>
+        {!user ? <Nav.Link href="/login">Login</Nav.Link> : <Nav.Link>{logOut()}</Nav.Link>}
        </Nav>
       </Container>
     </Navbar>

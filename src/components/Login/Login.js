@@ -11,8 +11,8 @@ import {
 } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import firebase from "firebase/compat/app";
-import "firebase/firestore";
-import "firebase/auth";
+import "firebase/compat/firestore";
+import "firebase/compat/auth";
 // import { useAuthState } from "react-firebase-hooks/auth";
 // import { useCollectionData } from "react-firebase-hooks/firestore";
 
@@ -24,8 +24,6 @@ export default function Login({}) {
     auth.signInWithPopup(provider);
     console.log("login!");
   };
-
-  // auth.signOut();
 
   return (
     <div id="loginBody">
