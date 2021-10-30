@@ -1,4 +1,22 @@
 #loginBody {
   min-height: 100vh; // 100% of the screen's height is 100vh.
-  background-color: blue;
+  background-color: rgb(255, 255, 255);
+  align-items: center;
+}
+#login {
+  color: #0c164f;
+  font-size: 4em;
+  text-align: center;
+  // font-family: ;
+}
+
+p{
+text-align: center;
+font-size: 1.5em;
+}
+
+#button {
+  text-align: center;
+  align-items: center;
+  justify-content: center;
 }
