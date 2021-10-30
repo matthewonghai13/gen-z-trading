@@ -13,9 +13,11 @@ import {
   Link,
   Redirect,
 } from "react-router-dom";
+import { doc, setDoc, getDoc } from "firebase/firestore";
 
 function App() {
   const auth = firebase.auth();
+  const firestore = firebase.firestore();
   const [coins, setCoins] = useState([]);
   const [user] = useAuthState(auth);
 
@@ -31,8 +33,31 @@ function App() {
       .catch((error) => console.log(error));
   }, []);
 
-  const onBuyClick = (name, price, amount) => {
+  const onBuyClick = async (name, price, amount) => {
+    console.log(user);
+    const username = user["displayName"];
     console.log("bought " + name + "!" + "for" + price * amount);
+    // firestore.collection("users");
+
+    // get user's document in users collection
+    const userData = await (
+      await getDoc(doc(firestore, "users", username))
+    ).data();
+    console.log(userData);
+
+    // append stuff
+
+    userData["total_account_value"] =
+      userData["total_account_value"] + price * amount;
+    if (name === "Ethereum") {
+      userData["num_eth"] = userData["num_eth"] + amount;
+    } else if (name === "Bitcoin") {
+      userData["num_btc"] = userData["num_btc"] + amount;
+    } else if (name === "XRP") {
+      userData["num_xrp"] = userData["num_btc"] + amount;
+    }
+    // write back to firestore
+    await setDoc(doc(firestore, "users", username), userData);
   };
 
   return (
@@ -45,7 +70,6 @@ function App() {
       </header>
       <p>welcome</p>
     </div>
-
   );
 }
 
