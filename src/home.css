@@ -9,3 +9,6 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+.App {
+  background-image: linear-gradient(black, white);
+}

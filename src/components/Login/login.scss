@@ -1,18 +1,21 @@
 #loginBody {
   min-height: 100vh; // 100% of the screen's height is 100vh.
-  background-color: rgb(255, 255, 255);
-
+  // background-color: rgb(255, 255, 255);
+  background-image: linear-gradient(black, white);
 }
+
 #login {
-  color: #0c164f;
+  color:whitesmoke;
   font-size: 4em;
   text-align: center;
   // font-family: ;
 }
 
 p{
+color: whitesmoke;
 text-align: center;
 font-size: 1.5em;
+margin: 2em;
 }
 
 #button {
@@ -20,6 +23,7 @@ font-size: 1.5em;
   justify-content: center !important;
   align-items: center;
   // min-width: 50% !important;
-  margin-top: 5em;
+  margin-top: 2.5em;
   padding: 0em 5em !important;
+  color: whitesmoke;
 }

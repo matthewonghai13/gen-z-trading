@@ -33,9 +33,12 @@ export default function Login({}) {
       <header id="Header">
         <p id="login">Login or Sign Up</p>
       </header>
-      <p> Click on the button to login to your Google account</p>
+      <p> Welcome to "web name"! You can track your Cryptocurrency
+        status, accessing varity amount of resourses, and communicate with 
+        virtue asistance on "wbe name."
+      </p>
       <div id="button">
-        <Button size="lg" onClick={handleLogin}>
+        <Button size="lg" onClick={handleLogin} variant="dark">
           Sign in with Google
         </Button>
       </div>

@@ -7,7 +7,9 @@ function App() {
       <header className="App-header">
         <CryptoPane />
       </header>
+      <p>welcome</p>
     </div>
+
   );
 }
 
