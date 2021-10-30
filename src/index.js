@@ -5,6 +5,18 @@ import Home from "./Home";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Login from "./components/Login/Login.js";
 import CustomNavbar from "./components/CustomNavbar/CustomNavbar.js";
+import firebase from "firebase/app";
+import "firebase/firestore";
+import "firebase/auth";
+
+firebase.initializeApp({
+  apiKey: "AIzaSyBRnQBoi13u9pnoRDIGK7ukgF9DvzW1x0c",
+  authDomain: "genztrading-58118.firebaseapp.com",
+  projectId: "genztrading-58118",
+  storageBucket: "genztrading-58118.appspot.com",
+  messagingSenderId: "470684132118",
+  appId: "1:470684132118:web:bc3c094bc1c3dae51da637",
+});
 
 ReactDOM.render(
   <React.StrictMode>
