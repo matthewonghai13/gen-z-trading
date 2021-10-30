@@ -25,8 +25,6 @@ export default function Login({}) {
     console.log("login!");
   };
 
-  // auth.signOut();
-
   return (
     <div id="loginBody">
       {user ? <Redirect to="/home" /> : <></>}

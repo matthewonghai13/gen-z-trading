@@ -2,22 +2,13 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import Home from "./Home";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  Redirect,
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Login from "./components/Login/Login.js";
 import CustomNavbar from "./components/CustomNavbar/CustomNavbar.js";
 import firebase from "firebase/compat/app";
 import "firebase/compat/firestore";
 import "firebase/compat/auth";
 import "bootstrap/dist/css/bootstrap.min.css";
-
-import { useAuthState } from "react-firebase-hooks/auth";
-import { useCollectionData } from "react-firebase-hooks/firestore";
 
 const app = firebase.initializeApp({
   apiKey: "AIzaSyBRnQBoi13u9pnoRDIGK7ukgF9DvzW1x0c",
@@ -29,7 +20,7 @@ const app = firebase.initializeApp({
 });
 
 const auth = firebase.auth();
-const firestore = firebase.firestore();
+// const firestore = firebase.firestore();
 
 ReactDOM.render(
   <React.StrictMode>
