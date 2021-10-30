@@ -1,9 +1,9 @@
-#customNavbarBody {
-  min-height: 10vh; // 100% of the screen's height is 100vh.
-  background-color: white;
-}
 
 #navBar {
-  position: fixed;
-  
+  width: 100%;
+  color: whitesmoke;
+}
+
+.logoutButton {
+  color: purple;
 }
