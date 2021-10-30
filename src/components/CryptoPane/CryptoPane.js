@@ -2,7 +2,7 @@ import React from "react";
 import "./cryptoPane.scss";
 import Button from "react-bootstrap/Button";
 
-export default function CryptoPane({ crypto, onBuyClick }) {
+export default function CryptoPane({ crypto, onBuyClick, coinQuantity }) {
   const coinName = crypto["name"];
   const coinPrice = crypto["price"];
 
@@ -11,11 +11,10 @@ export default function CryptoPane({ crypto, onBuyClick }) {
   return (
     <div>
       <br/>
-    {/* <header id='welcomeHome'>welcome</header> */}
-  
       <div id="pane">
-        <p>{coinName}</p>
+        <h1>{coinName}</h1>
         <p>{coinPrice}</p>
+        <p>Owned: {coinQuantity}</p>
         <Button onClick={() => onBuyClick(coinName, coinPrice, 1)}>Buy</Button>
       </div>
     </div>
