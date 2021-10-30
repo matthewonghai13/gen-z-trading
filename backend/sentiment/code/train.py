@@ -20,7 +20,7 @@ total_emotions = {
     '08' : 'surprised'
 }
 
-observe = ['calm', 'happy', 'fearful', 'disgust']
+observe = ['angry', 'happy', 'sad', 'neutral']
 
 # file name, mel spectrogram, mel coefficients, chroma waveform, 
 def extract(f_name, mel, mel_coeff, chroma):
@@ -65,23 +65,24 @@ def load_data(test_size = 0.2):
         emotions.append(emotion)
     return train_test_split(np.array(features), emotions, test_size = test_size, random_state=9)
 
-# create train/test sets
-features_train, features_test, emotions_train, emotions_test = load_data(test_size = 0.25)
+if __name__ == '__main__':
+    # create train/test sets
+    features_train, features_test, emotions_train, emotions_test = load_data(test_size = 0.25)
 
-# check shape/features
-print((features_train.shape[0], features_test.shape[0]))
-print(features_train.shape[1])
+    # check shape/features
+    print((features_train.shape[0], features_test.shape[0]))
+    print(features_train.shape[1])
 
-# make model and train
-model = MLPClassifier(alpha = 0.01, batch_size = 32, epsilon = .00000001, hidden_layer_sizes = (300, ), learning_rate = 'adaptive', max_iter = 1000)
-model.fit(features_train, emotions_train)
+    # make model and train
+    model = MLPClassifier(alpha = 0.01, batch_size = 32, epsilon = .00000001, hidden_layer_sizes = (300, ), learning_rate = 'adaptive', max_iter = 1000)
+    model.fit(features_train, emotions_train)
 
-# predicted emotions for test set using model
-emotions_predict = model.predict(features_test)
+    # predicted emotions for test set using model
+    emotions_predict = model.predict(features_test)
 
-# calculate accuracy of model's predictions
-acc = accuracy_score(y_true = emotions_test, y_pred = emotions_predict)
-print(acc)
+    # calculate accuracy of model's predictions
+    acc = accuracy_score(y_true = emotions_test, y_pred = emotions_predict)
+    print(acc)
 
-# save/write model to directory
-pickle.dump(model, open("mlp.model", "wb"))
+    # save/write model to directory
+    pickle.dump(model, open("mlp.model", "wb"))

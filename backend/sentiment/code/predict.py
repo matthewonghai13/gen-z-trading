@@ -1,4 +1,5 @@
 from train import extract
+import pickle
 
 # load saved model 
 model = pickle.load(open("mlp.model", "rb"))
