@@ -31,17 +31,12 @@ export default function Login({}) {
     <div id="loginBody">
       {user ? <Redirect to="/home" /> : <></>}
       <header id="Header">
-        <p id="login">Log In or Sign Up</p>
+        <p id="login">Login or Sign Up</p>
       </header>
-      <p> description of website and what it does</p>
-
-      <header id="Header">
-        <p id="login">Log In or Sign Up</p>
-      </header>
-      <p> description of website and what it does</p>
+      <p> Click on the button to login to your Google account</p>
       <div id="button">
         <Button size="lg" onClick={handleLogin}>
-          Link to Google
+          Sign in with Google
         </Button>
       </div>
     </div>

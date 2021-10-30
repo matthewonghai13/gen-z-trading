@@ -26,7 +26,7 @@ export default function CustomNavbar() {
         </li>
         {!user ? (
           <li>
-            <Link to="/login">login</Link>
+            <Link to="/login">Login</Link>
           </li>
         ) : (
           <li>{logOut()}</li>
