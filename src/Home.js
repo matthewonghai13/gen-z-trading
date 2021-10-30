@@ -22,6 +22,14 @@ function App() {
   const [user] = useAuthState(auth);
   const [userData, setUserData] = useState({});
 
+  const getInitialAccountValue = async () => {
+    const username = user["displayName"];
+    const data = await (await getDoc(doc(firestore, "users", username))).data();
+    return data["total_account_value"];
+  };
+
+  const [totalAccountValue, setTotalAccountValue] = useState(0);
+
   useEffect(async () => {
     axios
       .get(
@@ -40,6 +48,8 @@ function App() {
         await getDoc(doc(firestore, "users", username))
       ).data();
       setUserData(data);
+      console.log("hi");
+      setTotalAccountValue(data["total_account_value"]);
     }
   }, []);
 
@@ -67,15 +77,17 @@ function App() {
     }
     // write back to firestore
     await setDoc(doc(firestore, "users", username), userData);
+    // force react refresh
+    setTotalAccountValue(userData["total_account_value"]);
   };
 
-  console.log(userData);
-
+  console.log(totalAccountValue);
   return (
     <div className="App">
       {!user ? <Redirect to="/login" /> : <></>}
       <header className="App-header">
-        total account value: {userData["total_account_value"]} <br />
+        <div>total account value: {totalAccountValue}</div>
+
         {coins.map((coin) => (
           <CryptoPane
             key={coin["name"]}
@@ -85,7 +97,6 @@ function App() {
           />
         ))}
       </header>
-      <p>welcome</p>
     </div>
   );
 }
