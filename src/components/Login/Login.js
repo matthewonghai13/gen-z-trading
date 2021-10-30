@@ -2,6 +2,13 @@ import React from "react";
 import "./login.scss";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useCollectionData } from "react-firebase-hooks/firestore";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  Redirect,
+} from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import firebase from "firebase/compat/app";
 import "firebase/firestore";
@@ -18,27 +25,19 @@ export default function Login({}) {
     console.log("login!");
   };
 
-  function SignOut() {
-    return (
-      auth.currentUser && (
-        <button className="sign-out" onClick={() => auth.signOut()}>
-          Sign Out
-        </button>
-      )
-    );
-  }
-  return (
-    !user && (
-      <div id="loginBody">
-        <header id="Header">
-          <p id="login">Log In or Sign Up</p>
-        </header>
-        <p> description of website and what it does</p>
+  // auth.signOut();
 
-        <Button id="button" onClick={handleLogin}>
-          hello
-        </Button>
-      </div>
-    )
+  return (
+    <div id="loginBody">
+      {/* {user ? <Redirect to="/home" /> : <></>} */}
+      <header id="Header">
+        <p id="login">Log In or Sign Up</p>
+      </header>
+      <p> description of website and what it does</p>
+
+      <Button id="button" onClick={handleLogin}>
+        hello
+      </Button>
+    </div>
   );
 }
