@@ -8,7 +8,6 @@ import "firebase/firestore";
 import "firebase/auth";
 // import { useAuthState } from "react-firebase-hooks/auth";
 // import { useCollectionData } from "react-firebase-hooks/firestore";
-import Button from 'react-bootstrap/Button';
 
 export default function Login({}) {
   // const [user] = useAuthState(auth);
@@ -31,12 +30,12 @@ export default function Login({}) {
   return <div id="loginBody">
 
   <header id='Header'>
-    <h1>Log In or Sign Up</h1>
+    <p id='login'>Log In or Sign Up</p>
   </header>
   <p> description of website and what it does 
     </p>
 
-    <Button onClick={handleLogin}>
+    <Button id='button' onClick={handleLogin}>
       hello
     </Button>
     
