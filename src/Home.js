@@ -14,6 +14,8 @@ import {
   Redirect,
 } from "react-router-dom";
 import { doc, setDoc, getDoc } from "firebase/firestore";
+import Row from 'react-bootstrap/Row'
+import Container from "react-bootstrap/Container"
 
 function App() {
   const auth = firebase.auth();
@@ -87,16 +89,21 @@ function App() {
       <header id='welcomeHome'>welcome</header> 
       {!user ? <Redirect to="/login" /> : <></>}
       <header className="App-header">
-        <div>total account value: {totalAccountValue}</div>
+        <div>Total Account Value: {totalAccountValue}</div>
 
-        {coins.map((coin) => (
-          <CryptoPane
-            key={coin["name"]}
-            crypto={coin}
-            coinQuantity={userData[`num_${coin["name"]}`]}
-            onBuyClick={onBuyClick}
-          />
-        ))}
+        <Container>
+          <Row>
+            {coins.map((coin) => (
+              <CryptoPane
+                key={coin["name"]}
+                crypto={coin}
+                coinQuantity={userData[`num_${coin["name"]}`]}
+                onBuyClick={onBuyClick}
+              />
+            ))}
+          </Row>
+        </Container>
+
       </header>
     </div>
   );
