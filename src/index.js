@@ -5,13 +5,15 @@ import Home from "./Home";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Login from "./components/Login/Login.js";
 import CustomNavbar from "./components/CustomNavbar/CustomNavbar.js";
-import firebase from 'firebase/compat/app';
-import "firebase/firestore";
-import "firebase/auth";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import firebase from "firebase/compat/app";
+import "firebase/compat/firestore";
+import "firebase/compat/auth";
+import "bootstrap/dist/css/bootstrap.min.css";
 
+import { useAuthState } from "react-firebase-hooks/auth";
+import { useCollectionData } from "react-firebase-hooks/firestore";
 
-firebase.initializeApp({
+const app = firebase.initializeApp({
   apiKey: "AIzaSyBRnQBoi13u9pnoRDIGK7ukgF9DvzW1x0c",
   authDomain: "genztrading-58118.firebaseapp.com",
   projectId: "genztrading-58118",
@@ -19,6 +21,9 @@ firebase.initializeApp({
   messagingSenderId: "470684132118",
   appId: "1:470684132118:web:bc3c094bc1c3dae51da637",
 });
+
+const auth = firebase.auth();
+const firestore = firebase.firestore();
 
 ReactDOM.render(
   <React.StrictMode>
@@ -28,7 +33,7 @@ ReactDOM.render(
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
-          <Route path="/login">
+          <Route auth={auth} path="/login">
             <Login />
           </Route>
           <Route path="/users">{/* <Users /> */}</Route>
