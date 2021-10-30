@@ -34,10 +34,10 @@ export default function Login({}) {
   </header>
   <p> description of website and what it does 
     </p>
-
-    <Button id='button' onClick={handleLogin}>
-      hello
+  <div id='button'>
+    <Button size='lg' onClick={handleLogin}>
+      Link to Google
     </Button>
-    
+  </div>
   </div>;
 }

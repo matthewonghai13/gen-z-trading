@@ -1,7 +1,7 @@
 #loginBody {
   min-height: 100vh; // 100% of the screen's height is 100vh.
   background-color: rgb(255, 255, 255);
-  align-items: center;
+
 }
 #login {
   color: #0c164f;
@@ -16,7 +16,10 @@ font-size: 1.5em;
 }
 
 #button {
-  text-align: center;
+  display: flex;
+  justify-content: center !important;
   align-items: center;
-  justify-content: center;
+  // min-width: 50% !important;
+  margin-top: 5em;
+  padding: 0em 3em !important;
 }
