@@ -37,12 +37,12 @@ def post():
     auth_token = "ceb7701c3b69be8da9a10302e224c4d2"
     client = Client(account_sid, auth_token)
 
-    imgIdx = random.randint(0,2)
+    imgIdx = random.randint(0,1)
     msgIdx = random.randint(0,2)
 
     if (emotion == "angry"):
-        msg=["Chill out my dude", "Turn that frown upside-down", "mad 'cause bad"]
-        img=['https://miro.medium.com/max/1200/1*69_-h9zfZy5O9r5uxxKs5Q.png', 'https://i.huffpost.com/gen/1167324/thumbs/o-ANGRY-ANIMALS-570.jpg?5', 'https://static.boredpanda.com/blog/wp-content/uploads/2017/01/angry-animals-35-58887f5864b37__605.jpg']
+        msg=["Today is a good day", "The vibes are up", "nice"]
+        img=['https://media.istockphoto.com/photos/blurred-nose-of-a-golden-retriever-walking-in-the-fresh-air-with-a-picture-id860049914?k=20&m=860049914&s=612x612&w=0&h=4AyyVpwPTSK3xwj9Tydl8PgGw1eeUct4GYgKXezAGUY=', 'https://thumbor.forbes.com/thumbor/711x474/https://specials-images.forbesimg.com/imageserve/5faada1a27ed9b982134f82d/Best-Animal-Photos-Agora-Contest--close-up-of-an-orangutan-face-in-Indonesia-/960x0.jpg?fit=scale']
     elif (emotion == "sad"):
         msg=["You will be okay", "It gets better. I promise", "This is so sad"]
         img=['https://pbs.twimg.com/profile_images/1392227162791555075/ZPx--tbU_400x400.jpg', 'https://imgix.ranker.com/list_img_v2/7991/2147991/original/weird-animal-facts-that-will-make-you-sad-u1?w=817&h=427&fm=jpg&q=50&fit=crop', 'https://pbs.twimg.com/media/EDn1QwsXsAAnBIR.jpg']
@@ -59,7 +59,7 @@ def post():
             body=msg[msgIdx],
             from_='+18303767102',
             media_url=[img[imgIdx]],
-            to='+12106064738'
+            to='+10000000000'
         )
     print("message sent")
     print(message.sid)
