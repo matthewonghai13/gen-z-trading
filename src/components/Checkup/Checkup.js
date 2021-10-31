@@ -4,6 +4,7 @@ import Webcam from "react-webcam";
 import Button from "react-bootstrap/Button";
 import * as faceapi from "face-api.js";
 import exit from "../../exit.png"
+import ReactMicrophone from "../Mic/ReactMicrophone"
 
 export default function Checkup() {
   const [initializing, setInitializing] = useState(false);
@@ -85,9 +86,8 @@ export default function Checkup() {
               />
               <canvas ref={canvasRef} className="position-absolute" />
             </div>
-            <Button id="recButton" variant="outline-light" size="lg" onClick={() => setCamEnabled(true)}>
-              Tell Us How You're Feeling (Start Recording)
-            </Button>
+            
+            <ReactMicrophone></ReactMicrophone>
           </span>
         ) : (
           <div>
@@ -98,13 +98,13 @@ export default function Checkup() {
           </div>
         )}
       </span>
-      <a id ="exitNow" href="https://www.youtube.com/watch?v=QH2-TGUlwu4">
-          <img
-            src = {exit}
-            width="90px" height="70px"
-          >
-          </img>
-        </a>
+      <a id="exitNow" href="https://www.youtube.com/watch?v=QH2-TGUlwu4">
+        <img
+          src={exit}
+          width="90px" height="70px"
+        >
+        </img>
+      </a>
     </div>
   );
 }
