@@ -1,6 +1,15 @@
 
 #navBar {
   width: 100%;
+  color: transparent;
+  // background-image: url("https://images.unsplash.com/photo-1608754482805-6f630357358b?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8c3BhY2UlMjBiYWNrZ3JvdW5kfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80");
+  // background-color: (0,0,0,0);
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  background-color: transparent !important;
+  transition: color 200ms linear;
   color: whitesmoke;
 }
 

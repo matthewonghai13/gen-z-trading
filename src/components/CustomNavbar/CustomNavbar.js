@@ -20,29 +20,16 @@ export default function CustomNavbar() {
     );
   };
   return (
-    // <nav id="customNavbarBody">
-    //   <ul>
-    //     <li>
-    //       <Link to="/">Home</Link>
-    //     </li>
-    //     {!user ? (
-    //       <li>
-    //         <Link to="/login">Login</Link>
-    //       </li>
-    //     ) : (
-    //       <li>{logOut()}</li>
-    //     )}
-    //   </ul>
-    // </nav>
-    <Navbar id= "navBar" bg="secondary" variant="dark">
+    <Navbar id= "navBar" variant="black">
       <Container>
       <Navbar.Brand  href="/">Home</Navbar.Brand>
       <Nav className="me-auto">
-        <Nav.Link color="white" href="/resources">Resources</Nav.Link>
+        <Nav.Link href="/resources">Resources</Nav.Link>
         <Nav.Link href="/checkup">Check Up</Nav.Link>
         {!user ? <Nav.Link href="/login">Login</Nav.Link> : <Nav.Link>{logOut()}</Nav.Link>}
        </Nav>
       </Container>
     </Navbar>
+
   );
 }
