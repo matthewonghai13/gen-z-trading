@@ -68,14 +68,15 @@ export default function Login({}) {
         src={cat} 
         class="center"
         />
-         <a
+      <div>
+        <a
           id="exitNow"
-          href="https://www.youtube.com/watch?v=0qwHO0_ESOE"
+          href="https://www.youtube.com/watch?v=QH2-TGUlwu4"
           target="_blank"target
         >
           quick safe exit!
         </a>
-
+      </div>
     </div>
   );
 }

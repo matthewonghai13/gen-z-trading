@@ -22,7 +22,9 @@ export default function CryptoPane({
         <h1>{coinName}</h1>
         <p>{Number(coinPrice).toFixed(2) + " USD"}</p>
         <p>Owned: {coinQuantity}</p>
-        <Button
+        <Button 
+          id = "buyButton"
+          variant="outline-light"
           onClick={() => {
             onBuyClick(coinName, coinPrice, 1);
           }}
@@ -30,6 +32,8 @@ export default function CryptoPane({
           Buy
         </Button>
         <Button
+          id ="sellButton"
+          variant="outline-light"
           onClick={() => {
             onSellClick(coinName, coinPrice, 1);
           }}
