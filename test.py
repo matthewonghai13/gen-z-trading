@@ -2,5 +2,9 @@ import requests
 
 BASE = "http://127.0.0.1:5000/"
 
-response = requests.get(BASE + "helloworld")
-print(response.json())
+file = open('./backend/sentiment/code/recordingold.wav', 'rb')
+# files = {'video': file}
+req = requests.post(BASE + "audio", data=file)
+
+print(req.status_code)
+print(req.text)
