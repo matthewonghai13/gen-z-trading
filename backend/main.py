@@ -8,6 +8,7 @@ import pickle
 # Download the helper library from https://www.twilio.com/docs/python/install
 import os
 from twilio.rest import Client
+import random
 
 app = Flask(__name__)
 api = Api(app)
@@ -36,10 +37,15 @@ def post():
     auth_token = "ceb7701c3b69be8da9a10302e224c4d2"
     client = Client(account_sid, auth_token)
 
+    imgIdx = random.randint(0,2)
+    msgIdx = random.randint(0,2)
+
     if (emotion == "angry"):
         msg="Glad to hear you're feeling happy! https://cat-bounce.com/"
     elif (emotion == "sad"):
-        msg="Sorry to hear you're feeling sad. Maybe you should stick to ETFs?"
+        msg=["You will be okay", "It gets better. I promise", "This is so sad"]
+        img=['https://pbs.twimg.com/profile_images/1392227162791555075/ZPx--tbU_400x400.jpg', 'https://imgix.ranker.com/list_img_v2/7991/2147991/original/weird-animal-facts-that-will-make-you-sad-u1?w=817&h=427&fm=jpg&q=50&fit=crop', 'https://pbs.twimg.com/media/EDn1QwsXsAAnBIR.jpg']
+
     elif (emotion == "neutral"):
         msg="You seem to be in a neutral mood. Have you checked your investments recently?"
     elif (emotion == "happy"):
@@ -47,9 +53,9 @@ def post():
 
     message = client.messages \
         .create(
-            body=msg,
+            body=msg[msgIdx],
             from_='+18303767102',
-            media_url=['https://pbs.twimg.com/profile_images/1392227162791555075/ZPx--tbU_400x400.jpg'],
+            media_url=[img[imgIdx]],
             to='+12106064738'
         )
     print("message sent")
