@@ -50,10 +50,12 @@
 }
 h1{
   font-family: 'Dancing Script', cursive;
+  font-weight: bold;
 }
 h2{
   font-family: 'Dancing Script', cursive;
 }
 p{
   font-family: 'Times New Roman', Times, serif;
+  font-size: 0.3em;
 }
