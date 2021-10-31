@@ -14,7 +14,7 @@ import firebase from "firebase/compat/app";
 import "firebase/compat/firestore";
 import "firebase/compat/auth";
 import { doc, setDoc, getDoc } from "firebase/firestore";
-import cat from './catgif.gif';
+import cat from "./catgif.gif";
 
 // import { useAuthState } from "react-firebase-hooks/auth";
 // import { useCollectionData } from "react-firebase-hooks/firestore";
@@ -26,7 +26,7 @@ export default function Login({}) {
   const handleLogin = async () => {
     const provider = new firebase.auth.GoogleAuthProvider();
     auth.signInWithPopup(provider);
-    
+
     // const username = user["displayName"];
 
     // // get user's document in users collection
@@ -38,7 +38,7 @@ export default function Login({}) {
     // userData["num_Bitcoin"] = 0.0;
     // userData["num_XRP"] = 0.0;
     // userData["total_account_value"] = 0.0;
-  
+
     // write back to firestore
     // setDoc(doc(firestore, "users", username), userData);
 
@@ -48,26 +48,18 @@ export default function Login({}) {
   return (
     <div id="loginBody">
       {user ? <Redirect to="/home" /> : <></>}
-      <br/>
+      <br />
       <header id="Header">
         <p id="login">Login or Sign Up</p>
       </header>
-      <p> Welcome to "web name"! You can track your Cryptocurrency
-        status, accessing varity amount of resourses, and communicate with 
-        virtue asistance on "wbe name."
-      </p>
+      <p> Welcome to Trade-Z, a new Crypto-trading experience.</p>
       <div id="button">
-        <Button variant="outline-light" size="lg" onClick={handleLogin} >
+        <Button variant="outline-light" size="lg" onClick={handleLogin}>
           Sign in with Google
         </Button>
-        
       </div>
 
-      <img 
-        id= "catType"
-        src={cat} 
-        class="center"
-        />
+      {/* <img id="catType" src={cat} class="center" /> */}
     </div>
   );
 }
