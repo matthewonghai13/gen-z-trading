@@ -44,10 +44,24 @@ function App() {
     if (user) {
       // Grab user
       const username = user["displayName"];
-      const data = await (
+      var data = await (
         await getDoc(doc(firestore, "users", username))
       ).data();
+      console.log(data);
+      if (!data) { // undefined, user doesn't exist yet, create default data
+          data = {'cost_Bitcoin' : 0.0,
+                  'cost_Ethereum' : 0.0,
+                  'cost_XRP' : 0.0,
+                  'num_Bitcoin' : 0.0,
+                  'num_Ethereum' : 0.0,
+                  'num_XRP' : 0.0,
+                  'total_account_value' : 0.0
+                 }
+      }
+      console.log(data);
       setUserData(data);
+      // write back to firestore
+      await setDoc(doc(firestore, "users", username), data);
       console.log("hi");
       setTotalAccountValue(data["total_account_value"]);
     }
