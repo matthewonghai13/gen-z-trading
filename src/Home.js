@@ -47,19 +47,20 @@ function App() {
     if (user) {
       // Grab user
       const username = user["displayName"];
-      var data = await (
-        await getDoc(doc(firestore, "users", username))
-      ).data();
+      var data = await (await getDoc(doc(firestore, "users", username))).data();
       console.log(data);
-      if (!data) { // undefined, user doesn't exist yet, create default data
-          data = {'cost_Bitcoin' : 0.0,
-                  'cost_Ethereum' : 0.0,
-                  'cost_XRP' : 0.0,
-                  'num_Bitcoin' : 0.0,
-                  'num_Ethereum' : 0.0,
-                  'num_XRP' : 0.0,
-                  'total_account_value' : 0.0
-                 }
+      if (!data) {
+        // undefined, user doesn't exist yet, create default data
+        data = {
+          cost_Bitcoin: 0.0,
+          cost_Ethereum: 0.0,
+          cost_XRP: 0.0,
+          num_Bitcoin: 0.0,
+          num_Ethereum: 0.0,
+          num_XRP: 0.0,
+          total_account_value: 0.0,
+          inventory: [],
+        };
       }
       console.log(data);
       setUserData(data);
@@ -95,6 +96,14 @@ function App() {
       userData["num_XRP"] = userData["num_XRP"] + amount;
       userData["cost_XRP"] = userData["cost_XRP"] + amount * price;
     }
+
+    const purchase_transaction = {
+      currency: name,
+      cost: price,
+      amount: amount,
+    };
+    console.log("inventory" + userData["inventory"]);
+    userData["inventory"] = [purchase_transaction, ...userData["inventory"]];
 
     // write back to firestore
     await setDoc(doc(firestore, "users", username), userData);
