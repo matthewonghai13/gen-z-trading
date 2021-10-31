@@ -57,7 +57,7 @@ export default function Login({}) {
         virtue asistance on "wbe name."
       </p>
       <div id="button">
-        <Button size="lg" onClick={handleLogin} variant="dark">
+        <Button variant="outline-light" size="lg" onClick={handleLogin} >
           Sign in with Google
         </Button>
         

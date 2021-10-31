@@ -4,6 +4,7 @@ import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
+import Form from 'react-bootstrap/Form'
 
 export default function CryptoPane({
   crypto,
@@ -22,11 +23,12 @@ export default function CryptoPane({
         <h1>{coinName}</h1>
         <p>{Number(coinPrice).toFixed(2) + " USD"}</p>
         <p>Owned: {coinQuantity}</p>
+        <Form.Control id={"amount_" + coinName} placeholder="Enter Quantity..."/>
         <Button 
           id = "buyButton"
           variant="outline-light"
           onClick={() => {
-            onBuyClick(coinName, coinPrice, 1);
+            onBuyClick(coinName, coinPrice, parseFloat(document.getElementById("amount_" + coinName).value));
           }}
         >
           Buy
@@ -35,7 +37,7 @@ export default function CryptoPane({
           id ="sellButton"
           variant="outline-light"
           onClick={() => {
-            onSellClick(coinName, coinPrice, 1);
+            onSellClick(coinName, coinPrice, parseFloat(document.getElementById("amount_" + coinName).value));
           }}
         >
           Sell
