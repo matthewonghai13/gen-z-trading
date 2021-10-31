@@ -49,6 +49,7 @@ def post():
         .create(
             body=msg,
             from_='+18303767102',
+            media_url=['https://pbs.twimg.com/profile_images/1392227162791555075/ZPx--tbU_400x400.jpg'],
             to='+12106064738'
         )
     print("message sent")
