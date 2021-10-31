@@ -18,29 +18,31 @@
 }
 #welcomeHome {
   font-size: 5em;
-  font-family: 'Dancing Script', cursive;
+  font-family: "Dancing Script", cursive;
 }
-#total{
- font-size: 2em; 
- font-family: 'Times New Roman', Times, serif;
+#total {
+  font-size: 2em;
+  font-family: "Times New Roman", Times, serif;
 }
-#exitNow{
+#exitNow {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
 }
-#amount_XRP{
+#amount_XRP {
   width: 28%;
   margin-left: auto;
   margin-right: auto;
 }
-#amount_Ethereum{
+#amount_Ethereum {
   width: 28%;
   margin-left: auto;
   margin-right: auto;
 }
-#amount_Bitcoin{
+#amount_Bitcoin {
   width: 28%;
   margin-left: auto;
   margin-right: auto;
