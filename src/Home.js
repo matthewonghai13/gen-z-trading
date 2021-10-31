@@ -75,7 +75,7 @@ function App() {
     if (!amount || amount <= 0) {
       return;
     }
-    
+
     console.log(user);
     const username = user["displayName"];
     console.log("bought " + name + "!" + "for" + price * amount);
@@ -153,13 +153,15 @@ function App() {
     };
 
     var total_left = amount; // keep track of amount left to subtract from inventory
-    for (var i = userData["inventory"].length - 1; i >= 0; i--) { // look through inventory from end for sold coin
+    for (var i = userData["inventory"].length - 1; i >= 0; i--) {
+      // look through inventory from end for sold coin
       if (userData["inventory"][i]["currency"] === name) {
         // decrement amount to subtract and remove from inventory
         if (total_left >= userData["inventory"][i]["amount"]) {
           total_left -= userData["inventory"][i]["amount"];
-          userData["inventory"].splice(i, 1); 
-        } else { // amount to subtract is less than transaction
+          userData["inventory"].splice(i, 1);
+        } else {
+          // amount to subtract is less than transaction
           total_left -= userData["inventory"][i]["amount"];
           break;
         }
@@ -175,7 +177,9 @@ function App() {
 
   console.log(totalAccountValue);
 
-  var str = user["displayName"];
+  if (user) {
+    var str = user["displayName"];
+  }
 
   return (
     <div className="App">
@@ -209,7 +213,8 @@ function App() {
       <div id="exitNow">
         <a
           href="https://www.youtube.com/watch?v=QH2-TGUlwu4"
-          target="_blank"target
+          target="_blank"
+          target
         >
           quick safe exit!
         </a>
