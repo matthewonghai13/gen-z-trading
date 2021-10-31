@@ -93,7 +93,9 @@ function App() {
       <header id="welcomeHome">welcome</header>
       {!user ? <Redirect to="/login" /> : <></>}
       <header className="App-header">
-        <div>Total Account Value: {totalAccountValue}</div>
+        <div>
+          Total Account Value: {Number(totalAccountValue).toFixed(2) + " USD"}
+        </div>
 
         <Container>
           <Row>
