@@ -13,16 +13,34 @@ import Button from "react-bootstrap/Button";
 import firebase from "firebase/compat/app";
 import "firebase/compat/firestore";
 import "firebase/compat/auth";
+import { doc, setDoc, getDoc } from "firebase/firestore";
 
 // import { useAuthState } from "react-firebase-hooks/auth";
 // import { useCollectionData } from "react-firebase-hooks/firestore";
 
 export default function Login({}) {
   const auth = firebase.auth();
+  const firestore = firebase.firestore();
   const [user] = useAuthState(auth);
-  const handleLogin = () => {
+  const handleLogin = async () => {
     const provider = new firebase.auth.GoogleAuthProvider();
     auth.signInWithPopup(provider);
+    
+    // const username = user["displayName"];
+
+    // // get user's document in users collection
+    // const userData = await getDoc(await doc(firestore, "users", username)).data();
+    // console.log(userData);
+
+    // userData["total_account_value"] = 0.0;
+    // userData["num_Ethereum"] = 0.0;
+    // userData["num_Bitcoin"] = 0.0;
+    // userData["num_XRP"] = 0.0;
+    // userData["total_account_value"] = 0.0;
+  
+    // write back to firestore
+    // setDoc(doc(firestore, "users", username), userData);
+
     console.log("login!");
   };
 
