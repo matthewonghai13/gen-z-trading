@@ -17,7 +17,6 @@ import { doc, setDoc, getDoc } from "firebase/firestore";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 
-
 function App() {
   const auth = firebase.auth();
   const firestore = firebase.firestore();
@@ -47,19 +46,20 @@ function App() {
     if (user) {
       // Grab user
       const username = user["displayName"];
-      var data = await (
-        await getDoc(doc(firestore, "users", username))
-      ).data();
+      var data = await (await getDoc(doc(firestore, "users", username))).data();
       console.log(data);
-      if (!data) { // undefined, user doesn't exist yet, create default data
-          data = {'cost_Bitcoin' : 0.0,
-                  'cost_Ethereum' : 0.0,
-                  'cost_XRP' : 0.0,
-                  'num_Bitcoin' : 0.0,
-                  'num_Ethereum' : 0.0,
-                  'num_XRP' : 0.0,
-                  'total_account_value' : 0.0
-                 }
+      if (!data) {
+        // undefined, user doesn't exist yet, create default data
+        data = {
+          cost_Bitcoin: 0.0,
+          cost_Ethereum: 0.0,
+          cost_XRP: 0.0,
+          num_Bitcoin: 0.0,
+          num_Ethereum: 0.0,
+          num_XRP: 0.0,
+          total_account_value: 0.0,
+          inventory: [],
+        };
       }
       console.log(data);
       setUserData(data);
@@ -96,10 +96,60 @@ function App() {
       userData["cost_XRP"] = userData["cost_XRP"] + amount * price;
     }
 
+    const purchase_transaction = {
+      currency: name,
+      cost: price,
+      amount: amount,
+    };
+    console.log("inventory" + userData["inventory"]);
+    userData["inventory"] = [purchase_transaction, ...userData["inventory"]];
+
     // write back to firestore
     await setDoc(doc(firestore, "users", username), userData);
     // force react refresh
     setTotalAccountValue(userData["total_account_value"]);
+    window.location.reload();
+  };
+
+  const onSellClick = async (name, price, amount) => {
+    console.log(user);
+    const username = user["displayName"];
+    console.log("sold " + name + "!" + "for" + price * amount);
+    // firestore.collection("users");
+
+    // get user's document in users collection
+    const userData = await (
+      await getDoc(doc(firestore, "users", username))
+    ).data();
+    console.log(userData);
+
+    // update account value, quantities, and cost basis
+    userData["total_account_value"] =
+      userData["total_account_value"] - price * amount;
+    if (name === "Ethereum") {
+      userData["num_Ethereum"] = userData["num_Ethereum"] - amount;
+      userData["cost_Ethereum"] = userData["cost_Ethereum"] - amount * price;
+    } else if (name === "Bitcoin") {
+      userData["num_Bitcoin"] = userData["num_Bitcoin"] - amount;
+      userData["cost_Bitcoin"] = userData["cost_Bitcoin"] - amount * price;
+    } else if (name === "XRP") {
+      userData["num_XRP"] = userData["num_XRP"] - amount;
+      userData["cost_XRP"] = userData["cost_XRP"] - amount * price;
+    }
+
+    const purchase_transaction = {
+      currency: name,
+      cost: price,
+      amount: amount,
+    };
+    console.log("inventory" + userData["inventory"]);
+    userData["inventory"] = [purchase_transaction, ...userData["inventory"]];
+
+    // write back to firestore
+    await setDoc(doc(firestore, "users", username), userData);
+    // force react refresh
+    setTotalAccountValue(userData["total_account_value"]);
+    window.location.reload();
   };
 
   console.log(totalAccountValue);
@@ -121,6 +171,7 @@ function App() {
                 coinQuantity={userData[`num_${coin["name"]}`]}
                 coinCostBasis={userData[`cost_${coin["name"]}`]}
                 onBuyClick={onBuyClick}
+                onSellClick={onSellClick}
               />
             ))}
           </Row>
