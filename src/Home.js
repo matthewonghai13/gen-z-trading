@@ -204,11 +204,15 @@ function App() {
             ))}
           </Row>
         </Container>
-        <Summary
-          mood="sad"
-          sign="virgo"
-          name={str.substr(0, str.indexOf(" "))}
-        />
+        {user ? (
+          <Summary
+            mood="sad"
+            sign="virgo"
+            name={str.substr(0, str.indexOf(" "))}
+          />
+        ) : (
+          <></>
+        )}
       </header>
       <div id="exitNow">
         <a
