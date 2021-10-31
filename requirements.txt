@@ -15,3 +15,4 @@ numpy==1.20
 sklearn
 soundfile
 gunicorn
+twilio
