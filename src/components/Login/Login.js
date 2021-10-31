@@ -14,6 +14,7 @@ import firebase from "firebase/compat/app";
 import "firebase/compat/firestore";
 import "firebase/compat/auth";
 import { doc, setDoc, getDoc } from "firebase/firestore";
+import cat from './catgif.gif';
 
 // import { useAuthState } from "react-firebase-hooks/auth";
 // import { useCollectionData } from "react-firebase-hooks/firestore";
@@ -59,7 +60,22 @@ export default function Login({}) {
         <Button size="lg" onClick={handleLogin} variant="dark">
           Sign in with Google
         </Button>
+        
       </div>
+
+      <img 
+        id= "catType"
+        src={cat} 
+        class="center"
+        />
+         <a
+          id="exitNow"
+          href="https://www.youtube.com/watch?v=0qwHO0_ESOE"
+          target="_blank"target
+        >
+          quick safe exit!
+        </a>
+
     </div>
   );
 }
