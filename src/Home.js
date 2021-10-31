@@ -17,7 +17,6 @@ import { doc, setDoc, getDoc } from "firebase/firestore";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 
-
 function App() {
   const auth = firebase.auth();
   const firestore = firebase.firestore();

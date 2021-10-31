@@ -5,6 +5,7 @@ import Home from "./Home";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Login from "./components/Login/Login.js";
 import CustomNavbar from "./components/CustomNavbar/CustomNavbar.js";
+import Checkup from "./components/Checkup/Checkup.js";
 import firebase from "firebase/compat/app";
 import "firebase/compat/firestore";
 import "firebase/compat/auth";
@@ -33,7 +34,9 @@ ReactDOM.render(
           <Route auth={auth} path="/login">
             <Login />
           </Route>
-          <Route path="/users">{/* <Users /> */}</Route>
+          <Route path="/checkup">
+            <Checkup />
+          </Route>
           <Route path="/">
             <Home />
           </Route>
