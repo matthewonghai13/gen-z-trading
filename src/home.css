@@ -11,6 +11,7 @@
   color: white;
   min-height: 100vh;
   size: auto;
+  background-size: cover;
   background-image: url("https://images.unsplash.com/photo-1608754482805-6f630357358b?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8c3BhY2UlMjBiYWNrZ3JvdW5kfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80");
 }
 .App-header {
@@ -34,28 +35,18 @@
   position: fixed;
 }
 #amount_XRP {
-  width: 28%;
+  width: 43%;
   margin-left: auto;
   margin-right: auto;
 }
 #amount_Ethereum {
-  width: 28%;
+  width: 43%;
   margin-left: auto;
   margin-right: auto;
 }
 #amount_Bitcoin {
-  width: 28%;
+  width: 43%;
   margin-left: auto;
   margin-right: auto;
 }
-h1{
-  font-family: 'Dancing Script', cursive;
-  font-weight: bold;
-}
-h2{
-  font-family: 'Dancing Script', cursive;
-}
-p{
-  font-family: 'Times New Roman', Times, serif;
-  font-size: 0.3em;
-}
+

@@ -20,7 +20,7 @@ export default function CustomNavbar() {
     );
   };
   return (
-    <Navbar id= "navBar" variant="black">
+    <Navbar id= "navBar" variant="dark">
       <Container>
       <Navbar.Brand  href="/">Home</Navbar.Brand>
       <Nav className="me-auto">
