@@ -1,7 +1,7 @@
 ## Inspiration
 As a team consisting of mainly Business and CNS majors, we found the theme of cryptocurrency to be the most relatable to our areas of studies. Along with our interest in other areas, we combined together our interests to create TradeZ. The idea behind TradeZ started from creating a cryptocurrency tracker along with other fresh ideas such as computer vision, sentiment analysis, and space as we developed our website.
    
-`## What it does
+## What it does
 TradeZ is a multi-functional platform for cryptocurrency trading for generation Z. It offers live market data for popular cryptocurrencies, investment tips based on horoscopes and user mood, facial recognition and voice analysis to predict user emotion, resources, and a built-in quick safe exit from the worries of trading!
 
 ## How we built it
