@@ -223,7 +223,7 @@ function App() {
         <a href="https://www.youtube.com/watch?v=QH2-TGUlwu4">
           <img
             src = {exit}
-            width="95px" height="70px"
+            width="90px" height="70px"
           >
           </img>
         </a>
