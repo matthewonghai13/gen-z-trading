@@ -134,17 +134,21 @@ function App() {
     console.log(userData);
 
     // update account value, quantities, and cost basis
-    userData["total_account_value"] =
-      userData["total_account_value"] - price * amount;
     if (name === "Ethereum" && userData["num_Ethereum"] > 0) {
-      userData["num_Ethereum"] = userData["num_Ethereum"] - amount;
-      userData["cost_Ethereum"] = userData["cost_Ethereum"] - amount * price;
+      var removed = userData["num_Ethereum"] <= amount ? userData["num_Ethereum"] * price : amount * price;
+      userData["total_account_value"] = userData["total_account_value"] - removed;
+      userData["num_Ethereum"] = userData["num_Ethereum"] <= amount ? 0.0 : userData["num_Ethereum"] - amount;
+      userData["cost_Ethereum"] = userData["cost_Ethereum"] <= price * amount ? 0.0 : userData["cost_Ethereum"] - price * amount;
     } else if (name === "Bitcoin" && userData["num_Bitcoin"] > 0) {
-      userData["num_Bitcoin"] = userData["num_Bitcoin"] - amount;
-      userData["cost_Bitcoin"] = userData["cost_Bitcoin"] - amount * price;
+      var removed = userData["num_Bitcoin"] <= amount ? userData["num_Bitcoin"] * price : amount * price;
+      userData["total_account_value"] = userData["total_account_value"] - removed;
+      userData["num_Bitcoin"] = userData["num_Bitcoin"] <= amount ? 0.0 : userData["num_Bitcoin"] - amount;
+      userData["cost_Bitcoin"] = userData["num_Bitcoin"] <= price * amount ? 0.0 : userData["num_Bitcoin"] - price * amount;
     } else if (name === "XRP" && userData["num_XRP"] > 0) {
-      userData["num_XRP"] = userData["num_XRP"] - amount;
-      userData["cost_XRP"] = userData["cost_XRP"] - amount * price;
+      var removed = userData["num_XRP"] <= amount ? userData["num_XRP"] * price : amount * price;
+      userData["total_account_value"] = userData["total_account_value"] - removed;
+      userData["num_XRP"] = userData["num_XRP"] <= amount ? 0.0 : userData["num_XRP"] - amount;
+      userData["cost_XRP"] = userData["cost_XRP"] <= price * amount ? 0.0 : userData["cost_XRP"] - price * amount;
     }
 
     const purchase_transaction = {
@@ -163,7 +167,7 @@ function App() {
           userData["inventory"].splice(i, 1);
         } else {
           // amount to subtract is less than transaction
-          total_left -= userData["inventory"][i]["amount"];
+          userData["inventory"][i]["amount"] -= total_left;
           break;
         }
       }
