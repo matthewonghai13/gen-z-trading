@@ -197,6 +197,14 @@ function App() {
           </Row>
         </Container>
       </header>
+      <div id="exitNow">
+        <a
+          href="https://www.youtube.com/watch?v=QH2-TGUlwu4"
+          target="_blank"target
+        >
+          quick safe exit!
+        </a>
+      </div>
     </div>
   );
 }
