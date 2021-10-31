@@ -1,5 +1,6 @@
 import "./home.css";
 import CryptoPane from "./components/CryptoPane/CryptoPane.js";
+import Summary from "./components/Summary/Summary.js";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -153,6 +154,9 @@ function App() {
   };
 
   console.log(totalAccountValue);
+
+  var str = user["displayName"];
+
   return (
     <div className="App">
       <header id="welcomeHome">Welcome!</header>
@@ -176,6 +180,11 @@ function App() {
             ))}
           </Row>
         </Container>
+        <Summary
+          mood="sad"
+          sign="virgo"
+          name={str.substr(0, str.indexOf(" "))}
+        />
       </header>
     </div>
   );
