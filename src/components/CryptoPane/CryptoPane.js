@@ -8,6 +8,7 @@ import Col from "react-bootstrap/Col";
 export default function CryptoPane({
   crypto,
   onBuyClick,
+  onSellClick,
   coinQuantity,
   coinCostBasis,
 }) {
@@ -27,6 +28,13 @@ export default function CryptoPane({
           }}
         >
           Buy
+        </Button>
+        <Button
+          onClick={() => {
+            onSellClick(coinName, coinPrice, 1);
+          }}
+        >
+          Sell
         </Button>
       </div>
     </Col>
