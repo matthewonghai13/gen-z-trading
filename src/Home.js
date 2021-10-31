@@ -108,6 +108,7 @@ function App() {
     await setDoc(doc(firestore, "users", username), userData);
     // force react refresh
     setTotalAccountValue(userData["total_account_value"]);
+    window.location.reload();
   };
 
   const onSellClick = async (name, price, amount) => {
@@ -148,6 +149,7 @@ function App() {
     await setDoc(doc(firestore, "users", username), userData);
     // force react refresh
     setTotalAccountValue(userData["total_account_value"]);
+    window.location.reload();
   };
 
   console.log(totalAccountValue);
