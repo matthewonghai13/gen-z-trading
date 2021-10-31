@@ -71,6 +71,10 @@ function App() {
   }, []);
 
   const onBuyClick = async (name, price, amount) => {
+    if (!amount || amount <= 0) {
+      return;
+    }
+    
     console.log(user);
     const username = user["displayName"];
     console.log("bought " + name + "!" + "for" + price * amount);
@@ -98,7 +102,7 @@ function App() {
 
     const purchase_transaction = {
       currency: name,
-      cost: price,
+      cost: price * amount,
       amount: amount,
     };
     console.log("inventory" + userData["inventory"]);
@@ -112,6 +116,10 @@ function App() {
   };
 
   const onSellClick = async (name, price, amount) => {
+    if (!amount || amount <= 0) {
+      return;
+    }
+
     console.log(user);
     const username = user["displayName"];
     console.log("sold " + name + "!" + "for" + price * amount);
@@ -142,8 +150,20 @@ function App() {
       cost: price,
       amount: amount,
     };
-    console.log("inventory" + userData["inventory"]);
-    userData["inventory"] = [purchase_transaction, ...userData["inventory"]];
+
+    var total_left = amount; // keep track of amount left to subtract from inventory
+    for (var i = userData["inventory"].length - 1; i >= 0; i--) { // look through inventory from end for sold coin
+      if (userData["inventory"][i]["currency"] === name) {
+        // decrement amount to subtract and remove from inventory
+        if (total_left >= userData["inventory"][i]["amount"]) {
+          total_left -= userData["inventory"][i]["amount"];
+          userData["inventory"].splice(i, 1); 
+        } else { // amount to subtract is less than transaction
+          total_left -= userData["inventory"][i]["amount"];
+          break;
+        }
+      }
+    }
 
     // write back to firestore
     await setDoc(doc(firestore, "users", username), userData);
