@@ -1,5 +1,75 @@
 #resourcePage {
+  padding-top: 5em;
   background-image: url("https://images.unsplash.com/photo-1608754482805-6f630357358b?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8c3BhY2UlMjBiYWNrZ3JvdW5kfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80");
   min-height: 100vh;
   color: white;
+}
+
+#resource{
+  font-size: 4em;
+  text-align: center;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-family: "Dancing Script", cursive;
+}
+#article {
+  text-decoration: none;
+  color: white;
+  font-size: 2em;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+#article1 {
+  text-decoration: none;
+  color: white;
+  // font-size: 2em;
+  // font-family: 'Times New Roman', Times, serif;
+}
+
+#article2{
+  text-decoration: none;
+  color: white;
+  // font-size: 2em;
+  // font-family: 'Times New Roman', Times, serif;
+}
+#article3 {
+  text-decoration: none;
+  color: white;
+  // font-size: 2em;
+  // font-family: 'Times New Roman', Times, serif;
+}
+
+#vid {
+  text-decoration: none;
+  color: white;
+  font-size: 2em;
+  font-family: 'Times New Roman', Times, serif;
+
+}
+
+#vid1 {
+  text-decoration: none;
+  color: white;
+
+}
+
+#vid2 {
+  text-decoration: none;
+  color: white;
+
+}
+
+#vid3 {
+  text-decoration: none;
+  color: white;
+
+}
+
+#exitNow {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  right: 0;
+  bottom: 0;
+  position: fixed;
 }

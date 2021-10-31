@@ -212,7 +212,7 @@ function App() {
         {user ? (
           <Summary
             mood="sad"
-            sign="virgo"
+            sign="scorpio"
             name={str.substr(0, str.indexOf(" "))}
           />
         ) : (
