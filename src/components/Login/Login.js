@@ -29,6 +29,7 @@ export default function Login({}) {
   return (
     <div id="loginBody">
       {user ? <Redirect to="/home" /> : <></>}
+      <br/>
       <header id="Header">
         <p id="login">Login or Sign Up</p>
       </header>

@@ -86,7 +86,7 @@ function App() {
   console.log(totalAccountValue);
   return (
     <div className="App">
-      <header id='welcomeHome'>welcome</header> 
+      <header id='welcomeHome'>Welcome!</header> 
       {!user ? <Redirect to="/login" /> : <></>}
       <header className="App-header">
         <div>Total Account Value: {totalAccountValue}</div>
