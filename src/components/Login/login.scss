@@ -4,19 +4,21 @@
   // background-image: linear-gradient(black, white);
   background-image: url("https://images.unsplash.com/photo-1608754482805-6f630357358b?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8c3BhY2UlMjBiYWNrZ3JvdW5kfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80")
 }
-
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap');
 #login {
   color:whitesmoke;
-  font-size: 3em;
+  font-size: 4em;
   text-align: center;
-  font-family: "Sofia", sans-serif;
+  font-family: 'Dancing Script', cursive;
+  padding: 0em;
 }
 
 p{
 color: whitesmoke;
 text-align: center;
 font-size: 1.5em;
-margin: 2em;
+font-family: 'Times New Roman', Times, serif;
+margin: 0.5em;
 }
 
 #button {

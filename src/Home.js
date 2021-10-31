@@ -17,6 +17,7 @@ import { doc, setDoc, getDoc } from "firebase/firestore";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 
+
 function App() {
   const auth = firebase.auth();
   const firestore = firebase.firestore();
@@ -104,10 +105,10 @@ function App() {
   console.log(totalAccountValue);
   return (
     <div className="App">
-      <header id="welcomeHome">welcome</header>
+      <header id="welcomeHome">Welcome!</header>
       {!user ? <Redirect to="/login" /> : <></>}
       <header className="App-header">
-        <div>
+        <div id="total">
           Total Account Value: {Number(totalAccountValue).toFixed(2) + " USD"}
         </div>
 

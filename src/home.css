@@ -16,5 +16,8 @@
 #welcomeHome {
   font-size: 5em;
   font-family: cursive;
-  margin-top: .2em;
+}
+#total{
+ font-size: 2em; 
+ font-family: 'Times New Roman', Times, serif;
 }
