@@ -17,6 +17,7 @@ import {
 import { doc, setDoc, getDoc } from "firebase/firestore";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
+import exit from "./exit.png";
 
 function App() {
   const auth = firebase.auth();
@@ -214,17 +215,15 @@ function App() {
           <></>
         )}
       </header>
-      {/* <div id="exitNow">
-        <a href="https://www.youtube.com/watch?v=QH2-TGUlwu4"
+       <div id="exitNow">
+        <a href="https://www.youtube.com/watch?v=QH2-TGUlwu4">
           <img
+            src = {exit}
+            width="95px" height="70px"
           >
-
           </img>
-
-        >
-          quick safe exit!
         </a>
-      </div> */}
+      </div>
     </div>
   );
 }
