@@ -214,15 +214,17 @@ function App() {
           <></>
         )}
       </header>
-      <div id="exitNow">
-        <a
-          href="https://www.youtube.com/watch?v=QH2-TGUlwu4"
-          target="_blank"
-          target
+      {/* <div id="exitNow">
+        <a href="https://www.youtube.com/watch?v=QH2-TGUlwu4"
+          <img
+          >
+
+          </img>
+
         >
           quick safe exit!
         </a>
-      </div>
+      </div> */}
     </div>
   );
 }
